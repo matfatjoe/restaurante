@@ -1,0 +1,80 @@
+.selected {
+ background-color: #CFD8DC !important;
+ color: white;
+}
+.restaurantes {
+ margin: 0 0 2em 0;
+ list-style-type: none;
+ padding: 0;
+ width: 15em;
+}
+.restaurantes .text {
+  position: relative;
+  top: -3px;
+}
+.restaurantes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+footer {
+    background-color: #6e4e23;
+    border-top: 1px solid #D4A76A;
+    text-align: center;
+    padding: 20px;
+    font-family: DejaVu Sans Mono;
+    color: #000000;
+
+    position: relative;
+    left: 0;
+    bottom: 0%;
+    height: 60px;
+    width: 100%;
+}
+
+h2{
+  text-align: center;
+}
+
+body{
+  background-color: #8b9b9c;
+}
+
+#cards{
+  background-color: #D4A76A;
+}
+
+h4{
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+}
+
+#buttons{
+  background-color: #aa895f;
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+}
+
+#textoCard1, #textoCard2, #textoCard3{
+  color: #000;
+}
+
+img{
+  width: 300px;
+  height: 200px;
+}
+
+.imagemRelative{
+  margin-top: 5%;
+  margin-left: 25%;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<h2>Meus restaurantes</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 portfolio-item" *ngFor="let restaurante of restaurantes" routerLink="/restaurantes/detail/{{restaurante.id}}">
+      <div class="card mb-4" id="cards">
+          <div class="view overlay">
+            <img class="card-img-top imagemRelative" src="assets/images/{{restaurante.imagem}}" alt="{{restaurante.nome}}">
+          </div>
+          <div class="card-body">
+            <h4 id="textoCard1" class="card-title">{{restaurante.nome}}</h4>
+            <h6 id="textoCard2" class="card-title">R${{restaurante.valor}}</h6>
+            <h6 id="textoCard3" class="card-title">{{restaurante.endereco}}</h6>
+            <button id="buttons" type="button" class="btn btn-light-blue btn-md">Detalhes</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<app-restaurante-detail [restaurante]="selectedRestaurante"></app-restaurante-detail>
