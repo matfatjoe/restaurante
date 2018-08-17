@@ -14,15 +14,16 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HomePageComponent } from './home-page/home-page.component';
+import { RestauranteAddComponent } from './restaurante-add/restaurante-add.component';
 
 const config = {
-  apiKey: "AIzaSyCp4yTKMviZ97dl7tRHqu4qK-5rXcBEZEs",
-  authDomain: "restaurantetopzera.firebaseapp.com",
-  databaseURL: "https://restaurantetopzera.firebaseio.com",
-  projectId: "restaurantetopzera",
-  storageBucket: "restaurantetopzera.appspot.com",
-  messagingSenderId: "127547096806"
-};
+    apiKey: "AIzaSyCp4yTKMviZ97dl7tRHqu4qK-5rXcBEZEs",
+    authDomain: "restaurantetopzera.firebaseapp.com",
+    databaseURL: "https://restaurantetopzera.firebaseio.com",
+    projectId: "restaurantetopzera",
+    storageBucket: "restaurantetopzera.appspot.com",
+    messagingSenderId: "127547096806"
+  };
 
 
 @NgModule({
@@ -30,7 +31,8 @@ const config = {
     AppComponent,
     RestaurantesComponent,
     RestauranteDetailComponent,
-    HomePageComponent
+    HomePageComponent,
+    RestauranteAddComponent
   ],
   imports: [
     BrowserModule,

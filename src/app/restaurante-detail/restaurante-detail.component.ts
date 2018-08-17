@@ -33,4 +33,14 @@ export class RestauranteDetailComponent implements OnInit {
     this.location.back();
   }
 
+  update() {
+    const key = this.getKey();
+    this.restauranteService.updatedRestaurante(key, this.restaurante);
+    this.location.back();
+  }
+
+  getKey() {
+    return this.route.snapshot.paramMap.get('key');
+  }
+
 }

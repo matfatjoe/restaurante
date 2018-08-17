@@ -1,0 +1,17 @@
+<h3>Adicionar restaurante</h3>
+
+
+<div>
+  <form>
+    <label for="lname">Nome:</label>
+    <input [(ngModel)]="restaurante.nome" type="text"  name="lastname" placeholder="Nome">
+
+    <label for="lname">Endereço:</label>
+    <input [(ngModel)]="restaurante.endereco" type="text"  name="lastname" placeholder="Endereço">
+
+    <label for="lname">Preço médio:</label>
+    <input [(ngModel)]="restaurante.valor" type="number"  name="lastname" placeholder="Preço médio">
+
+    <a routerLink="/restaurante"><input (click)="add()" type="submit" value="Adicionar" class="bg-dark"></a>
+  </form>
+</div>

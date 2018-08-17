@@ -22,4 +22,8 @@ export class RestaurantesComponent implements OnInit {
       .subscribe(restaurantes => this.restaurantes = restaurantes);
   }
 
+  delete(key: string): void {
+    this.restauranteService.deleteRestaurante(key);
+  }
+
 }

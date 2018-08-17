@@ -27,7 +27,7 @@ export class RestauranteFbService {
 
   updatedRestaurante(key: string, updatedRestaurante: Restaurante): void {
     const resturanteRef = this.db.object(`restaurantes/${key}`);
-    resturanteRef.update({nome: updatedRestaurante.nome});
+    resturanteRef.update({nome: updatedRestaurante.nome, endereco: updatedRestaurante.endereco, valor: updatedRestaurante.valor, imagem: updatedRestaurante.imagem});
   }
 
   deleteRestaurante(key: string) {
