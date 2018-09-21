@@ -41,7 +41,7 @@ export class RestauranteAddComponent implements OnInit {
   uploadSingle() {
     let file = this.selectedFiles.item(0)
     this.currentUpload = new Upload(file);
-    this.restauranteService.pushUpload(this.currentUpload, this.restaurante)
+    this.restauranteService.pushUpload(this.currentUpload)
   }
 
   limparCampos() {

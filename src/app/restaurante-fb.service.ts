@@ -54,7 +54,7 @@ export class RestauranteFbService {
     return this.restaurante;
   }
 
-  pushUpload(upload: Upload, restaurante: Restaurante) {
+  pushUpload(upload: Upload) {
     let storageRef = firebase.storage().ref();
     let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
 
@@ -65,18 +65,18 @@ export class RestauranteFbService {
         // upload in progress
         upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            let imageUrl = downloadURL;
-            this.restaurante.imagem = imageUrl;
+            const imageUrl = downloadURL;
             console.log('URL:' + imageUrl);
         });
       },
       (error) => {
         // upload failed
         console.log(error)
+
       },
       () => {
         // upload success
-        console.log('uploadTask', uploadTask);
+        console.log('aaa', uploadTask);
         upload.url = uploadTask.uploadUrl_
         upload.name = upload.file.name
         this.saveFileData(upload)
