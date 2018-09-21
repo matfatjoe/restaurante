@@ -3,24 +3,22 @@
 
 <div class="container">
   <div class="row">
-    <a id="buttonAdd" routerLink="/add" type="button" class="btn btn-light-blue btn-md">Adicionar</a>
-  </div>
-  <div class="row">
     <div class="col-md-6 portfolio-item" *ngFor="let restaurante of restaurantes" >
       <div class="card mb-4" id="cards">
           <div class="view overlay">
-            <img class="card-img-top imagemRelative" src="assets/images/{{restaurante.imagem}}" alt="{{restaurante.nome}}">
+            <img class="card-img-top imagemRelative" src="{{restaurante.imagem}}" alt="{{restaurante.nome}}">
           </div>
           <div class="card-body">
             <h4 id="textoCard1" class="card-title">{{restaurante.nome}}</h4>
-            <h6 id="textoCard2" class="card-title">R${{restaurante.valor}}</h6>
+            <h6 id="textoCard2" class="card-title">{{restaurante.valor | currency:'R$'}}</h6>
             <h6 id="textoCard3" class="card-title">{{restaurante.endereco}}</h6>
-            <a id="buttons" type="button" class="btn btn-light-blue btn-md" routerLink="/restaurantes/detail/{{restaurante.key}}">Detalhes</a>
-            <button id="buttonExcluir" (click)="delete(restaurante.key)" type="button" class="btn btn-light-blue btn-md">Excluir</button>
+            <button id="buttons" type="button" class="btn btn-light-blue btn-md" routerLink="/restaurantes/detail/{{restaurante.key}}">Detalhes</button>
+            <button id="buttonExcluir" type="button" class="btn btn-light-blue btn-md" (click)="restauranteService.deleteRestaurante(restaurante
+            .key)">Excluir</button>
           </div>
         </div>
       </div>
   </div>
 </div>
-
 <app-restaurante-detail [restaurante]="selectedRestaurante"></app-restaurante-detail>
+<!-- <img src="" alt="asd"> -->

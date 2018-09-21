@@ -60,19 +60,13 @@ h4{
 }
 
 #buttons{
-  background-color: #ee895e;
+  background-color: #aa895f;
   color: #000000;
   font-family: DejaVu Sans Mono;
 }
 
 #buttonExcluir{
-  background-color: #ee725E;
-  color: #000000;
-  font-family: DejaVu Sans Mono;
-}
-
-#buttonAdd{
-  background-color: #ee725E;
+  background-color: #AA725F;
   color: #000000;
   font-family: DejaVu Sans Mono;
 }

@@ -1,7 +1,26 @@
 h1{
   text-align: center;
 }
+nav {
+  background-color: #AA7A39;
+}
+nav a {
+ padding: 5px 10px;
+ text-decoration: none;
+ margin-top: 10px;
+ display: inline-block;
+ border-radius: 4px;
+}
+nav a:visited, a:link {
+ color: #000000;
+}
+nav a.active {
+ color: #039be5;
+}
 
-div{
-  background-color: #8b9b9c;
+#buttons:hover{
+  background-color: #aa895f;
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+  cursor:pointer;
 }

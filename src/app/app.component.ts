@@ -35,6 +35,9 @@ export class AppComponent {
     );
   }
 
+  addRestaurante() {
+    this.router.navigate(['restaurantes/add']);
+  }
 
   logout() {
     this.authenticationService.logout();

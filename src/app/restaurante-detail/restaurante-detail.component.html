@@ -1,21 +1,24 @@
-<div *ngIf="restaurante" class="texto">
+<div *ngIf="restaurante" class="texto"><br>
  <h2>{{ restaurante.nome}}</h2>
 
- <div>
+ <div class="form-group mx-sm-3">
    <label>Nome:
-   <input [(ngModel)]="restaurante.nome" placeholder="nome">
+   <input class="form-control" [(ngModel)]="restaurante.nome" placeholder="nome">
    </label>
  </div>
- <div>
+
+ <div class="form-group mx-sm-3">
    <label>Preço médio:
-   <input [(ngModel)]="restaurante.valor" placeholder="valor" type="number">
+   <input class="form-control" [(ngModel)]="restaurante.valor" placeholder="valor" type="number">
    </label>
  </div>
- <div>
+
+ <div class="form-group mx-sm-3">
    <label>Endereço:
-   <input [(ngModel)]="restaurante.endereco" placeholder="endereco">
+   <input class="form-control" [(ngModel)]="restaurante.endereco" placeholder="endereco">
    </label>
  </div>
- <button id="buttons" class="btn btn-md" (click)="goBack()">Voltar</button>
- <button id="buttons1" class="btn btn-md" (click)="update()">Atualizar</button>
+
+ <button id="buttons" class="btn btn-md" (click)="updatedRestaurante()">Atualizar</button>
+ <button id="buttonExcluir" class="btn btn-md" (click)="goBack()">Voltar</button>
 </div>

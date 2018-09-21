@@ -1,17 +1,39 @@
-<h3>Adicionar restaurante</h3>
 
+<div class="texto">
+  <br>
 
-<div>
-  <form>
-    <label for="lname">Nome:</label>
-    <input [(ngModel)]="restaurante.nome" type="text"  name="lastname" placeholder="Nome">
+  <h1>Adicionar Restaurante</h1>
+    <div *ngIf="currentUpload">
+      <div class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+      </div>
+      Progresso: {{currentUpload?.name}} | {{currentUpload?.progress}}% Completo
+    </div>
 
-    <label for="lname">Endereço:</label>
-    <input [(ngModel)]="restaurante.endereco" type="text"  name="lastname" placeholder="Endereço">
+    <div class="form-group mx-sm-3">
+      <label>Nome:
+      <input class="form-control" [(ngModel)]="restaurante.nome" placeholder="Nome">
+      </label>
+    </div>
 
-    <label for="lname">Preço médio:</label>
-    <input [(ngModel)]="restaurante.valor" type="number"  name="lastname" placeholder="Preço médio">
+    <div class="form-group mx-sm-3">
+      <label>Endereco:
+      <input class="form-control" [(ngModel)]="restaurante.endereco" placeholder="Endereco">
+      </label>
+    </div>
 
-    <a routerLink="/restaurante"><input (click)="add()" type="submit" value="Adicionar" class="bg-dark"></a>
-  </form>
+    <div class="form-group mx-sm-3">
+      <label>Preço médio:
+      <input type="number" class="form-control" [(ngModel)]="restaurante.valor" placeholder="Valor">
+      </label>
+    </div>
+    <div class="form-group mx-sm-3">
+      <label>Imagem:
+      <input type="file" class="form-control" [(ngModel)]="restaurante.imagem" (change)="detectFiles($event)">
+      </label>
+    </div>
+
 </div>
+<button id="buttons" class="btn btn-md" (click)="add()">Salvar</button>
+<button id="buttonExcluir" class="btn btn-md bg-alert" (click)="voltar()">Cancelar</button>
+<br>

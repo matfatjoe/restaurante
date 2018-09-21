@@ -1,0 +1,14 @@
+.texto{
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+}
+#buttons{
+  background-color: #aa895f;
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+}
+#buttonExcluir{
+  background-color: #AA725F;
+  color: #000000;
+  font-family: DejaVu Sans Mono;
+}
