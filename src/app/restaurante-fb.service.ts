@@ -54,41 +54,47 @@ export class RestauranteFbService {
     return this.restaurante;
   }
 
-  pushUpload(upload: Upload) {
-    let storageRef = firebase.storage().ref();
-    let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
+  pushUpload(upload: Upload, restaurante: Restaurante, nome: string, valor: number, endereco: string) {
+      let storageRef = firebase.storage().ref();
+      let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}+${this.dataHoje()}`).put(upload.file);
 
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) =>  {
+        },
+        (error) => {
+          // upload failed
+          console.log(error)
 
+        },
+        () => {
+          // upload success
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+                const imageUrl = downloadURL;
+                upload.url = imageUrl
+                upload.name = upload.file.name
+                // this.saveFileData(upload)
 
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) =>  {
-        // upload in progress
-        upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            const imageUrl = downloadURL;
-            console.log('URL:' + imageUrl);
-        });
-      },
-      (error) => {
-        // upload failed
-        console.log(error)
+                restaurante.imagem = imageUrl;
+                restaurante.nome = nome;
+                restaurante.endereco = endereco;
+                restaurante.valor = valor;
 
-      },
-      () => {
-        // upload success
-        console.log('aaa', uploadTask);
-        upload.url = uploadTask.uploadUrl_
-        upload.name = upload.file.name
-        this.saveFileData(upload)
+                console.log("restaurante", restaurante);
+                this.addRestaurante(restaurante);
+            });
+          }
+      );
 
-      }
-    );
-
-  }
+    }
 
   // Writes the file details to the realtime db
   private saveFileData(upload: Upload) {
     this.db.list(`${this.basePath}/`).push(upload);
   }
 
+  dataHoje() {
+      const dateTime = Date.now();
+      const timestamp = Math.floor(dateTime / 1000);
+      return timestamp;
+    }
 }

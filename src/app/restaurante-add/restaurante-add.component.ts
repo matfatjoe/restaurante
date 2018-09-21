@@ -23,11 +23,11 @@ export class RestauranteAddComponent implements OnInit {
   }
 
   add(){
-    if ( this.restaurante.nome == null || this.restaurante.valor == null || this.restaurante.endereco == null ) {
+    if ( this.restaurante.nome == null || this.restaurante.valor == null || this.restaurante.endereco == null || this.restaurante.imagem == null ) {
       alert("Preencha os campos!");
     } else {
       // this.restaurante.imagem = 'teste.jpg';
-      this.restauranteService.addRestaurante(this.restaurante);
+      // this.restauranteService.addRestaurante(this.restaurante);
       this.uploadSingle()
       this.limparCampos();
       this.voltar();
@@ -39,10 +39,10 @@ export class RestauranteAddComponent implements OnInit {
   }
 
   uploadSingle() {
-    let file = this.selectedFiles.item(0)
-    this.currentUpload = new Upload(file);
-    this.restauranteService.pushUpload(this.currentUpload)
-  }
+      let file = this.selectedFiles.item(0);
+      this.currentUpload = new Upload(file);
+      this.restauranteService.pushUpload(this.currentUpload, this.restaurante, this.restaurante.nome, this.restaurante.valor, this.restaurante.endereco);
+    }
 
   limparCampos() {
     this.restaurante.nome = null;
