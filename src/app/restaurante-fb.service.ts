@@ -4,7 +4,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Upload } from './upload';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class RestauranteFbService {
