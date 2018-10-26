@@ -29,6 +29,8 @@ export class RestauranteFbService {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
+    this.getRestaurantes().subscribe(restaurantes => this.restaurantesList = restaurantes);
+    
   }
 
   addRestaurante(newRestaurante: Restaurante) : void {
@@ -104,7 +106,6 @@ export class RestauranteFbService {
 
     gerarPdf() {
 
-      this.getRestaurantes().subscribe(restaurantes => this.restaurantesList = restaurantes);
       var doc = new jsPDF();
       doc.setFontSize(32);
       doc.text(60, 20, 'Restaurantes');
@@ -123,24 +124,29 @@ export class RestauranteFbService {
           "id": i+1 ,
           "nome": this.restaurantesList[i].nome,
           "endereco": this.restaurantesList[i].endereco,
-          "preco": (this.restaurantesList[i].valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+          "preco": this.restaurantesList[i].valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
         };
       }
 
+      const totalPages = "{total_pages_count_string}";
+
       doc.autoTable(columns, rows, {
-          theme: 'grid',
+          // theme: 'grid',
           styles: {fillColor: 255},
           headerStyles: {fillColor: [212, 167, 106]},
           margin: {top: 35},
           pageBreak: 'auto',
           showHeader: 'everyPage',
           addPageContent: function(data) {
-            var page = "Página "+data.pageCount;
+            var page = "Página "+ data.pageCount +" de "+ totalPages;
             doc.setFontSize(12);
             doc.text(175, 290, page);
 
           }
       });
+      if (typeof doc.putTotalPages === 'function') {
+        doc.putTotalPages(totalPages);
+      }
 
       doc.save('Restaurantes.pdf');
 
