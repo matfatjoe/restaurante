@@ -10,7 +10,7 @@
           </div>
           <div class="card-body">
             <h4 id="textoCard1" class="card-title">{{restaurante.nome}}</h4>
-            <h6 id="textoCard2" class="card-title">{{restaurante.valor | currency:'R$'}}</h6>
+            <h6 id="textoCard2" class="card-title">{{restaurante.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}}</h6>
             <h6 id="textoCard3" class="card-title">{{restaurante.endereco}}</h6>
             <button id="buttons" type="button" class="btn btn-light-blue btn-md" routerLink="/restaurantes/detail/{{restaurante.key}}">Detalhes</button>
             <button id="buttonExcluir" type="button" class="btn btn-light-blue btn-md" (click)="restauranteService.deleteRestaurante(restaurante
