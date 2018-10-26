@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
+import { RestauranteFbService } from './restaurante-fb.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
 
   public isLoggedIn: boolean;
 
-  constructor(public authenticationService: AuthenticationService, private router: Router) {
+  constructor(public authenticationService: AuthenticationService, private router: Router, private restauranteService: RestauranteFbService) {
  // O método subscribe vai verificar de forma assíncrona
  // se o usuário está logado e então decidir para onde
  // redirecioná-lo. Se o usuário não estiver logado vai
@@ -37,6 +38,10 @@ export class AppComponent {
 
   addRestaurante() {
     this.router.navigate(['restaurantes/add']);
+  }
+
+  gerarPdf() {
+    this.restauranteService.gerarPdf();
   }
 
   logout() {

@@ -22,7 +22,7 @@ const config = {
     databaseURL: "https://restaurantetopzera.firebaseio.com",
     projectId: "restaurantetopzera",
     storageBucket: "restaurantetopzera.appspot.com",
-  messagingSenderId: "127547096806"
+    messagingSenderId: "127547096806"
 };
 
 
